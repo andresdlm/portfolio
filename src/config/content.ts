@@ -27,7 +27,7 @@ export const homeContent = {
   images: {
     light:
       'https://multiplepage-portfolio.edgeone.app/assets/images/tech-background-light.svg',
-    dark: '/assets/images/tech-background-dark.svg',
+    dark: '/images/tech-background-dark.svg',
   },
 };
 
@@ -57,7 +57,7 @@ export const aboutContent = {
     'Flutter',
   ],
   image: {
-    src: '/assets/images/about/profile.jpg',
+    src: 'https://media.licdn.com/dms/image/v2/D4E03AQFaByuAMeAhVg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1687153815037?e=1770854400&v=beta&t=YUBJppYIucMI5b2XEaRzqDmbzr_wB3lHg6HkfK7koNk',
     alt: 'Andrés Linarez',
   },
   experience: {
@@ -125,7 +125,7 @@ export const projectsContent = {
       title: 'Portal de Remesas Internacionales BBVA',
       description:
         'Desarrollo full stack con Angular 19, Spring Boot y SQL Server. Responsable del desarrollo frontend y backend, contribuyendo significativamente al éxito del producto.',
-      image: '/assets/images/projects/remesas.jpg',
+      image: 'https://picsum.photos/200/300',
       technologies: ['Angular 19', 'Spring Boot', 'SQL Server'],
       href: '#',
     },
@@ -133,7 +133,7 @@ export const projectsContent = {
       title: 'Botón de Pago Interbancario BBVA',
       description:
         'Desarrollo backend utilizando Java EE sin framework y SQL Server, implementando lógica de negocio robusta y segura para transacciones interbancarias.',
-      image: '/assets/images/projects/boton-pago.jpg',
+      image: 'https://picsum.photos/200/300',
       technologies: ['Java EE', 'SQL Server'],
       href: '#',
     },
@@ -141,7 +141,7 @@ export const projectsContent = {
       title: 'Sistema de Facturación y Reportería',
       description:
         'Sistema completo desarrollado con Angular, NestJS y PostgreSQL durante proyecto industrial universitario. Integrado exitosamente en la operación de Comunicaciones Migtel y en evolución activa.',
-      image: '/assets/images/projects/facturacion.jpg',
+      image: 'https://picsum.photos/200/300',
       technologies: ['Angular', 'NestJS', 'PostgreSQL'],
       href: '#',
     },
@@ -149,7 +149,7 @@ export const projectsContent = {
       title: 'Sistema Automatizado de Corte de Servicios',
       description:
         'Desarrollado en Python con manipulación avanzada de datos y dashboards interactivos, fomentando una cultura de inteligencia de negocios y automatización de procesos.',
-      image: '/assets/images/projects/corte-servicios.jpg',
+      image: 'https://picsum.photos/200/300',
       technologies: ['Python', 'Data Analytics', 'Dashboards'],
       href: '#',
     },
@@ -157,7 +157,7 @@ export const projectsContent = {
       title: 'Migración a Google Cloud Platform',
       description:
         'Migración progresiva de infraestructura on-premise a GCP, aprovechando VMs, servicios serverless, bases de datos autoadministradas y pipelines de CI/CD, mejorando disponibilidad y escalabilidad.',
-      image: '/assets/images/projects/gcp-migration.jpg',
+      image: 'https://picsum.photos/200/300',
       technologies: ['Google Cloud Platform', 'CI/CD', 'DevOps'],
       href: '#',
     },
@@ -165,7 +165,7 @@ export const projectsContent = {
       title: 'Página Web Corporativa Migtel',
       description:
         'Desarrollo de página web corporativa con Angular, mejorando la presencia digital y la comunicación con los clientes de la empresa.',
-      image: '/assets/images/projects/web-migtel.jpg',
+      image: 'https://picsum.photos/200/300',
       technologies: ['Angular', 'Web Development'],
       href: '#',
     },

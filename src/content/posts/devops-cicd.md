@@ -3,7 +3,7 @@ title: 'CI/CD Pipeline Setup and Best Practices'
 description: 'Streamline your development workflow with continuous integration and deployment'
 date: '2024-04-01'
 readTime: '7 min read'
-image: '/assets/images/posts/post3.jpg'
+image: 'https://picsum.photos/200/300'
 slug: 'devops-cicd'
 ---
 

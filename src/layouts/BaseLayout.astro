@@ -21,27 +21,7 @@ const { title, description } = Astro.props;
     <title>{title}</title>
     <meta name="description" content={description} />
     <ThemeScript />
-    <style>
-      .dot-hexagon-light {
-        background-image:
-          radial-gradient(circle, #80808045 1px, transparent 1px),
-          radial-gradient(circle, #80808045 1px, transparent 1px);
-        background-size: 24px 41.57px;
-        background-position:
-          0 0,
-          12px 20.78px;
-      }
 
-      .dot-hexagon-dark {
-        background-image:
-          radial-gradient(circle, #ffffff35 1px, transparent 1px),
-          radial-gradient(circle, #ffffff35 1px, transparent 1px);
-        background-size: 24px 41.57px;
-        background-position:
-          0 0,
-          12px 20.78px;
-      }
-    </style>
   </head>
   <body
     class="flex min-h-screen flex-col bg-white transition-colors duration-300 dark:bg-neutral-900"

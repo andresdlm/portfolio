@@ -13,10 +13,10 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<div class="py-10">
+<div class="py-10 ml-6">
   {
     items.map((item) => (
-      <div class="border-l border-gray-200 pb-10 last:border-l-0 dark:border-neutral-700">
+      <article class="border-l border-gray-200 pb-10 last:border-l-0 dark:border-neutral-700">
         <div class="relative flex flex-col justify-start pl-12">
           <div class="absolute top-0 left-0 z-40 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-full border border-neutral-300 bg-white dark:border-neutral-700 dark:bg-neutral-950">
             <svg
@@ -46,7 +46,7 @@ const { items } = Astro.props;
             {item.description}
           </p>
         </div>
-      </div>
+      </article>
     ))
   }
 </div>

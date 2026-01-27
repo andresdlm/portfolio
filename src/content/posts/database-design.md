@@ -3,7 +3,7 @@ title: 'Database Design Principles and Patterns'
 description: 'Learn fundamental database design principles for scalable applications'
 date: '2024-03-30'
 readTime: '10 min read'
-image: '/assets/images/posts/post2.jpg'
+image: 'https://picsum.photos/200/300'
 slug: 'database-design'
 ---
 
