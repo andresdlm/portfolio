@@ -1,0 +1,52 @@
+---
+interface ExperienceItem {
+  period: string;
+  position: string;
+  company: string;
+  description: string;
+}
+
+interface Props {
+  items: ExperienceItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="py-10">
+  {
+    items.map((item) => (
+      <div class="border-l border-gray-200 pb-10 last:border-l-0 dark:border-neutral-700">
+        <div class="relative flex flex-col justify-start pl-12">
+          <div class="absolute top-0 left-0 z-40 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-full border border-neutral-300 bg-white dark:border-neutral-700 dark:bg-neutral-950">
+            <svg
+              class="h-8 w-8 text-neutral-700 dark:text-neutral-300"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+              />
+            </svg>
+          </div>
+          <p class="text-xs tracking-widest text-neutral-400 uppercase dark:text-neutral-500">
+            {item.period}
+          </p>
+          <h3 class="my-1 text-lg font-bold dark:text-neutral-100">
+            {item.position}
+          </h3>
+          <p class="mb-1 text-sm font-medium dark:text-neutral-300">
+            {item.company}
+          </p>
+          <p class="text-sm font-light text-neutral-600 dark:text-neutral-400">
+            {item.description}
+          </p>
+        </div>
+      </div>
+    ))
+  }
+</div>

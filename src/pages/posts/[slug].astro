@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig } from '../../config/content';
+import { getPostBySlug, getAllPostSlugs } from '../../utils/getPosts';
+
+export async function getStaticPaths() {
+  const slugs = getAllPostSlugs();
+  return slugs.map((slug) => ({
+    params: { slug },
+  }));
+}
+
+const { slug } = Astro.params;
+
+if (!slug) {
+  return Astro.redirect('/posts/');
+}
+
+const post = getPostBySlug(slug);
+
+if (!post) {
+  return Astro.redirect('/posts/');
+}
+
+const { frontmatter, Content } = post;
+
+if (!Content) {
+  console.error(`Content component not found for slug: ${slug}`);
+  return Astro.redirect('/posts/');
+}
+
+const pageTitle = `${frontmatter.title} - ${siteConfig.name}`;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={frontmatter.description || siteConfig.description}
+>
+  <article class="relative z-20 mx-auto mt-24 mb-12 max-w-4xl px-7 lg:px-0">
+    <header class="mb-8">
+      <h1
+        class="mb-4 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl dark:text-neutral-100"
+      >
+        {frontmatter.title}
+      </h1>
+      <div
+        class="mb-4 flex items-center gap-4 text-sm text-neutral-600 dark:text-neutral-400"
+      >
+        <time datetime={frontmatter.date || ''}>
+          {
+            frontmatter.date
+              ? new Date(frontmatter.date).toLocaleDateString('es-ES', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })
+              : ''
+          }
+        </time>
+        {
+          frontmatter.readTime && (
+            <>
+              <span>•</span>
+              <span>{frontmatter.readTime}</span>
+            </>
+          )
+        }
+      </div>
+      {
+        frontmatter.description && (
+          <p class="text-lg text-neutral-600 dark:text-neutral-400">
+            {frontmatter.description}
+          </p>
+        )
+      }
+    </header>
+
+    <div
+      class="prose prose-lg prose-neutral dark:prose-invert prose-headings:font-bold prose-headings:text-neutral-900 dark:prose-headings:text-neutral-100 prose-p:text-neutral-700 dark:prose-p:text-neutral-300 prose-a:text-indigo-600 dark:prose-a:text-indigo-400 prose-a:no-underline hover:prose-a:underline prose-strong:text-neutral-900 dark:prose-strong:text-neutral-100 prose-code:text-neutral-900 dark:prose-code:text-neutral-100 prose-code:bg-neutral-100 dark:prose-code:bg-neutral-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-[''] prose-code:after:content-[''] prose-pre:bg-neutral-900 dark:prose-pre:bg-neutral-950 prose-pre:border prose-pre:border-neutral-700 dark:prose-pre:border-neutral-800 prose-blockquote:border-l-indigo-600 dark:prose-blockquote:border-l-indigo-400 prose-blockquote:text-neutral-700 dark:prose-blockquote:text-neutral-300 prose-img:rounded-lg prose-img:shadow-lg prose-hr:border-neutral-300 dark:prose-hr:border-neutral-700 prose-ul:text-neutral-700 dark:prose-ul:text-neutral-300 prose-ol:text-neutral-700 dark:prose-ol:text-neutral-300 prose-li:text-neutral-700 dark:prose-li:text-neutral-300 max-w-none"
+    >
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
