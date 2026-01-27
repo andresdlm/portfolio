@@ -17,6 +17,21 @@
     } else {
       document.documentElement.classList.remove('dark');
     }
+
+    // Set initial icon visibility via CSS to prevent flash
+    const style = document.createElement('style');
+    style.textContent =
+      initialTheme === 'dark'
+        ? '.theme-icon-light { display: none !important; } .theme-icon-dark { display: inline-block !important; }'
+        : '.theme-icon-light { display: inline-block !important; } .theme-icon-dark { display: none !important; }';
+    document.head.appendChild(style);
+
+    // Remove the style after page load to allow JS to take over
+    window.addEventListener('DOMContentLoaded', function () {
+      setTimeout(function () {
+        style.remove();
+      }, 100);
+    });
   })();
 </script>
 
