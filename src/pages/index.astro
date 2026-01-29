@@ -29,36 +29,20 @@ import { siteConfig, homeContent } from '../config/content.ts';
                 href={homeContent.buttons.about.href}
               >
                 {homeContent.buttons.about.text}
-                <svg
-                  class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2.5"
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                </svg>
+                <span
+                  class="icon-mask h-4 w-4"
+                  style="mask-image: url('/icons/arrow-right.svg'); -webkit-mask-image: url('/icons/arrow-right.svg');"
+                  aria-hidden="true"></span>
               </a>
               <a
                 class="group inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-neutral-300 bg-white px-5 py-3 text-sm font-medium text-neutral-900 transition-all duration-300 hover:scale-105 hover:bg-neutral-50 sm:text-base dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100 dark:hover:bg-neutral-700"
                 href={homeContent.buttons.posts.href}
               >
                 {homeContent.buttons.posts.text}
-                <svg
-                  class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2.5"
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                </svg>
+                <span
+                  class="icon-mask h-4 w-4"
+                  style="mask-image: url('/icons/arrow-right.svg'); -webkit-mask-image: url('/icons/arrow-right.svg');"
+                  aria-hidden="true"></span>
               </a>
             </div>
           </div>
