@@ -13,36 +13,24 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<div class="ml-6 py-10">
+<div class="timeline">
   {
     items.map((item) => (
-      <article class="border-l border-gray-200 pb-10 last:border-l-0 dark:border-neutral-700">
-        <div class="relative flex flex-col justify-start pl-12">
-          <div class="absolute top-0 left-0 z-40 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-full border border-neutral-300 bg-white dark:border-neutral-700 dark:bg-neutral-950">
-            <svg
-              class="h-8 w-8 text-neutral-700 dark:text-neutral-300"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-              />
-            </svg>
+      <article class="timeline-item">
+        <div class="timeline-item-content">
+          <div class="timeline-item-icon">
+            <span class="timeline-item-icon-svg" aria-hidden="true"></span>
           </div>
-          <p class="text-xs tracking-widest text-neutral-400 uppercase dark:text-neutral-500">
+          <p class="timeline-item-period">
             {item.period}
           </p>
-          <h3 class="my-1 text-lg font-bold dark:text-neutral-100">
+          <h3 class="timeline-item-position">
             {item.position}
           </h3>
-          <p class="mb-1 text-sm font-medium dark:text-neutral-300">
+          <p class="timeline-item-company">
             {item.company}
           </p>
-          <p class="text-sm font-light text-neutral-600 dark:text-neutral-400">
+          <p class="timeline-item-description">
             {item.description}
           </p>
         </div>
@@ -50,3 +38,116 @@ const { items } = Astro.props;
     ))
   }
 </div>
+
+<style>
+  .timeline {
+    margin-left: 1.5rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .timeline-item {
+    padding-bottom: 2.5rem;
+    border-left: 1px solid rgb(229 229 229);
+  }
+
+  .timeline-item:last-child {
+    border-left: none;
+  }
+
+  .timeline-item-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-left: 3rem;
+  }
+
+  .timeline-item-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    transform: translateX(-50%);
+    border: 1px solid rgb(212 212 212);
+    border-radius: 50%;
+    background-color: white;
+  }
+
+  .timeline-item-icon-svg {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background-color: rgb(64 64 64);
+    mask-image: url('/icons/code.svg');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-image: url('/icons/code.svg');
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+  }
+
+  .timeline-item-period {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: rgb(163 163 163);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .timeline-item-position {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+
+  .timeline-item-company {
+    margin-bottom: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .timeline-item-description {
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: rgb(82 82 82);
+  }
+
+  /* Dark mode */
+  :global(.dark) .timeline-item {
+    border-left-color: rgb(64 64 64);
+  }
+
+  :global(.dark) .timeline-item-icon {
+    border-color: rgb(64 64 64);
+    background-color: rgb(10 10 10);
+  }
+
+  :global(.dark) .timeline-item-icon-svg {
+    background-color: rgb(212 212 212);
+  }
+
+  :global(.dark) .timeline-item-period {
+    color: rgb(115 115 115);
+  }
+
+  :global(.dark) .timeline-item-position {
+    color: rgb(245 245 245);
+  }
+
+  :global(.dark) .timeline-item-company {
+    color: rgb(212 212 212);
+  }
+
+  :global(.dark) .timeline-item-description {
+    color: rgb(163 163 163);
+  }
+</style>
